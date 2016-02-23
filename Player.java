@@ -1,7 +1,7 @@
 public abstract class Player{
 	//attributes 
 	protected int turn;
-
+//practice
 
 
 /** SHOULD WE ADD IN A CONSTRUCTOR?*/
