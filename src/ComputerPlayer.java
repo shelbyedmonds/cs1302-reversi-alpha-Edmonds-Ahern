@@ -7,9 +7,6 @@ public abstract class ComputerPlayer extends Player{
 	public ComputerPlayer(){
 	}//constructor
 
-	@override
-	public int getTurnNum(){
-	} //getTurnNum
 
 	public int getRandomRow(){
 	}//getRandomRow
@@ -25,8 +22,5 @@ public abstract class ComputerPlayer extends Player{
 	public ReversiBoard changeBoard(){
 	}//changeBoard
 
-	@override
-	public void setTurn(){
-	}//setTurn
 
 }//ComputerPlayer

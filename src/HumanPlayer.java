@@ -9,11 +9,7 @@ public class HumanPlayer extends Player{
 	
 	}//constructor
 	
-	@override
-	public int getTurnNum(){
 
-	return turn;  //taken from parent class (protected modifier)
-	}//getTurnNum
 	
 	@override
 	public boolean moveValidation(){
@@ -26,10 +22,6 @@ public class HumanPlayer extends Player{
 	return ReversiBoard;
 	}//playersMove
 
-	@override
-	public boolean isYourTurn(){
-	return false;
-	}//isYourTurn
 	
 	@override
 	public ReversiBoard changeBoard(){
@@ -37,10 +29,7 @@ public class HumanPlayer extends Player{
 	return ReversiBoard;
 	}//ReversiBoard
 
-	@override
-	public void setTurn(){
 
-	}//setTurn
 
 
 

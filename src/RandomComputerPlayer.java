@@ -16,10 +16,6 @@ public class RandomComputerPlayer extends Player{
 	return randomColumn;
 	}//getRandomColumn
 
-	@override
-	public int getTurn(){
-	return turn;
-	}//getTurn
 
 	@override
 	public boolean moveValidation(){
@@ -31,21 +27,13 @@ public class RandomComputerPlayer extends Player{
 	return ReversiBoard;
 	}//playersMove
 
-	@override 
-	public boolean isYourTurn(){
-	return false;
-	}//isYourTurn
 
 	@override 
 	public ReversiBoard changeBoard(){
 	return ReversiBoard;
 	}//changeBoard
 	
-	@override 
-	public void setTurn(){
 	
-	/** SHOULD WE ADD A PARAMETER TO SET THE TURN TO?*/
-	}//setTurn
 	
 
 }//RandomComputerPlayer

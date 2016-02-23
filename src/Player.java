@@ -18,9 +18,11 @@ public abstract class Player{
 	}//changeBoard
 
 	public int getTurnNum(){
+	return turn;
 	}//getTurnNum
 
-	public void setTurn(){
+	public void setTurn(int turn){
+		this.turn=turn;
 	}//setTurn
 
 }//Player
