@@ -2,11 +2,13 @@ public abstract class Player{
 	//attributes 
 	protected int turn;
 	protected int numOfTokens;
+	protected String token;
+	protected turnStatus;
 	
-	public Player{
+	public Player(String playerToken){
 	turn=1;
 	numOfTokens=2;
-	//we need some way to decide which token the player will get
+	token=playerToken;
 	}//Player
 
 /** SHOULD WE ADD IN A CONSTRUCTOR?*/
@@ -20,14 +22,15 @@ public abstract class Player{
 	public abstract ReversiBoard playersMove(){
 	}//playersMove
 	
-	public abstract boolean isYourTurn(){
+	public boolean isYourTurn(){
+		return turnStatus;
 	}//isYourTurn
 	
 	public abstract ReversiBoard changeBoard(){
 	}//changeBoard
 
 	public int getTurnNum(){
-	return turn;
+		return turn;
 	}//getTurnNum
 
 	public void setTurn(int turn){
