@@ -5,6 +5,8 @@ public abstract class ComputerPlayer extends Player{
 	protected int randomColumn;
 
 	public ComputerPlayer(){
+		super();
+		
 	}//constructor
 
 

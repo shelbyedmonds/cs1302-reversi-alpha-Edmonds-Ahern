@@ -1,20 +1,29 @@
 public abstract class Player{
 	//attributes 
 	protected int turn;
-
-
+	protected int numOfTokens;
+	
+	public Player{
+	turn=1;
+	numOfTokens=2;
+	//we need some way to decide which token the player will get
+	}//Player
 
 /** SHOULD WE ADD IN A CONSTRUCTOR?*/
-	public boolean moveValidation(){
+	public abstract boolean moveValidation(){
 	}//moveValidation
 	
-	public ReversiBoard playersMove(){
+	public int howManyTokens(){
+		return numOfTokens;
+	}//howManyTokens
+
+	public abstract ReversiBoard playersMove(){
 	}//playersMove
 	
-	public boolean isYourTurn(){
+	public abstract boolean isYourTurn(){
 	}//isYourTurn
 	
-	public ReversiBoard changeBoard(){
+	public abstract ReversiBoard changeBoard(){
 	}//changeBoard
 
 	public int getTurnNum(){

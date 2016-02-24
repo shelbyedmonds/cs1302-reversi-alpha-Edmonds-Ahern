@@ -2,10 +2,9 @@ public class HumanPlayer extends Player{
 	//attributes
 	private int row;
 	private int column;
-	private int numOfPieces;
 	
 	public HumanPlayer(){
-		
+		super();
 	
 	}//constructor
 	
