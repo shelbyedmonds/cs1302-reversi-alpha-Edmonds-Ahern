@@ -4,11 +4,11 @@ public abstract class ComputerPlayer extends Player{
 	protected int randomRow;
 	protected int randomColumn;
 	protected String playersToken;
-	Random randomGenerator=new Random();
 
 
 	public ComputerPlayer(String playersToken){
 		super(playersToken);
+		Random randomGenerator=new Random();
 		this.playersToken=playersToken;
 
 		
@@ -26,16 +26,15 @@ public abstract class ComputerPlayer extends Player{
 	}//getRandomColumn
 
 	@override
-	public boolean moveValidation(int row, int column, Board ReversiBoard){
+	public boolean moveValidation(Board ReversiBoard){
+		
 		boolean status=false
 		while(status==false){
-		if(!(ReversiBoard[row-1][column-1].equals("."))){
-			getRandomRow();
-			getRandomColumn();
-			status=false;
-		}
-		else 
+		getRandomRow();
+		getRandomColumn();
+		if(ReversiBoard[randomRow][randomColumn].equals("_")){
 			status=true;
+		}
 		}
 		return status;
 			

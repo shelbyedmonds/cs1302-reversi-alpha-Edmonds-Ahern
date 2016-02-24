@@ -3,7 +3,6 @@ public abstract class Player{
 	protected int turn;
 	protected int numOfTokens;
 	protected String token;
-	protected turnStatus;
 	
 	public Player(String playerToken){
 	turn=1;
@@ -25,9 +24,6 @@ public abstract class Player{
 	public abstract ReversiBoard playersMove(){
 	}//playersMove
 	
-	public boolean isYourTurn(){
-		return turnStatus;
-	}//isYourTurn
 	
 	public abstract ReversiBoard changeBoard(){
 	}//changeBoard
@@ -35,6 +31,18 @@ public abstract class Player{
 	public int getTurnNum(){
 		return turn;
 	}//getTurnNum
+
+	public abstract void showVerticalMoves(Board reversiBoard, String playerToken){
+	}//showVerticalMoves
+	
+	public abstract void showHorizontalMoves(Board reversiBoard, String playerToken){
+        }//showHorizontalMoves
+
+        public abstract void showDiagonalMoves(Board reversiBoard, String playerToken){
+        }//showDiagonalMoves
+
+	public abstract void removeAvailableMoveMarkers(){
+	}//removeAvailableMoveMarkers
 
 	public void setTurn(int turn){
 		this.turn=turn;
