@@ -1,6 +1,7 @@
 public class ReversiBoard implements Board {
 
 	private String[][] board;
+	private int moveCount = 0;
 
 	@Override 
 	public void displayBoard(String[][] reversiBoard){
@@ -31,7 +32,7 @@ public class ReversiBoard implements Board {
 
 	@Override
 	public String[][] changeBoard(String[][] board, int row, int col, String spot) {
-		board[row][col] = spot;
+		board[row - 1][col - 1] = spot;
 		return board;
 	}
 	
@@ -41,7 +42,67 @@ public class ReversiBoard implements Board {
 		
 	public String[][] getBoard() {
 		return board;
+	}
+	
+	public void setMoveCount(int count) {
+		this.moveCount = count;
+	}
+	
+	public int getMoveCount() {
+		return moveCount;
+	}
+	
+	public String turnIndicator() {
+		String turn = "":
+		if (getMoveCount() % 2 == 0) {
+			turn = "X";
+		}
+		else {
+			turn = "O";
+		}
+		return turn;
 	}	
+	
+	public boolean legalMove(int row, int col) {
+		if (getBoard()[row - 1][col - 1].equals("X") && turnIndicator().equals("X")) {
+			if (searchUp()) {
+				return true;
+			}
+			else if (searchDown()) {
+				return true;
+			}
+			else if (searchRight()) {
+				return true;
+			}
+			else if (searchLeft()) {
+				return true;
+			}
+			else if (searchDiagUL()) {
+				return true;
+			}
+			else if (searchDiagUR()) {
+				return true;
+			}
+			else if (searchDiagDL()) {
+				return true;	
+			}
+			else if (searchDiagDR()) {
+				return true;
+			}
+		}
+
+		}
+	}
+	
+	public boolean isInBounds(int row, int col) {
+		if (row > 0 && row <= 8 && col > 0 && col <= 8) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+					
 
 	//add in how to display the board
 	
