@@ -1,10 +1,11 @@
 public interface Board{
 
-	public Board [] [] String;
+//	public String[][] board;
 
-	public void displayBoard(Board board){
-	}//displayBoard
+	public void displayBoard(String[][] board);
 
+	public String[][] initializeBoard();
 
-// practice
+	public String[][] changeBoard(String[][] board, int row, int col, String spot);
+
 }//Board
