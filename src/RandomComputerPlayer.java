@@ -4,18 +4,7 @@ public class RandomComputerPlayer extends Player{
 
 	/**DO WE NEED A CONSTRUCTOR HERE AS WELL?*/
 
-	@override
-	public int getRandomRow(){
 	
-	return randomRow;
-	}//getRandomRow
-
-	@override
-	public int getRandomColumn(){
-	
-	return randomColumn;
-	}//getRandomColumn
-
 
 	@override
 	public boolean moveValidation(){

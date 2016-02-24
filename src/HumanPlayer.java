@@ -2,7 +2,7 @@ public class HumanPlayer extends Player{
 	//attributes
 	private int row;
 	private int column;
-	private int playersToken;
+	private String playersToken;
 	
 	public HumanPlayer(String playersToken){
 		super(playersToken);
@@ -14,7 +14,7 @@ public class HumanPlayer extends Player{
 	
 	@override
 	public boolean moveValidation(Board ReversiBoard){
-		if(ReversiBoard[row][column]="_"&&row<8&&row>0&&column<8&&row>0 )
+		if(ReversiBoard[row-1][column-1].equals("_")&&row<8&&row>0&&column<8&&row>0 )
 			return true;
 		else
 			return false;
@@ -32,10 +32,26 @@ public class HumanPlayer extends Player{
 	}//playersMove
 
 	
+	public void changeAvailableMoveSpaces(){
+		//adding more here later...
+	}//changeAvailableMoveSpaces
+
 	@override
-	public ReversiBoard changeBoard(int row, int column, Board ReversiBoard){
-		ReversiBoard[row][column]=playersToken;
-		//somehow add in stuff to change the tokens in between this players token and the newly picked one
+	public ReversiBoard changeBoard(String playersToken, int row, int column, Board ReversiBoard){
+		int changeToRow=0;
+		int changeToColumn=0;
+		boolean vertical=false;
+		boolean horizontal=false;
+		boolean diagonal=false;
+		ReversiBoard[row][column]=" "+ playersToken+ " ";
+		
+		//horizontal loop checker
+		
+		//vertical loop checker
+		
+		//diagonal loop checker
+					
+				
 		
 	return ReversiBoard;
 	}//ReversiBoard

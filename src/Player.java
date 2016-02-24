@@ -11,13 +11,16 @@ public abstract class Player{
 	token=playerToken;
 	}//Player
 
-/** SHOULD WE ADD IN A CONSTRUCTOR?*/
 	public abstract boolean moveValidation(){
 	}//moveValidation
 	
 	public int howManyTokens(){
 		return numOfTokens;
 	}//howManyTokens
+
+	public void changeNumOfTokens(int tokens){
+		numOfTokens=tokens;
+	}//changeNumOfTokens
 
 	public abstract ReversiBoard playersMove(){
 	}//playersMove

@@ -16,16 +16,29 @@ public abstract class ComputerPlayer extends Player{
 
 
 	public int getRandomRow(){
-		randomGenerator.nextInt(8);
-
+		randomRow=randomGenerator.nextInt(8);
+	
 	}//getRandomRow
 
 	public int getRandomColumn(){
-		randomGenerator.nextInt(8);
+		randomColumn=randomGenerator.nextInt(8);
+
 	}//getRandomColumn
 
 	@override
-	public boolean moveValidation(){
+	public boolean moveValidation(int row, int column, Board ReversiBoard){
+		boolean status=false
+		while(status==false){
+		if(!(ReversiBoard[row-1][column-1].equals("."))){
+			getRandomRow();
+			getRandomColumn();
+			status=false;
+		}
+		else 
+			status=true;
+		}
+		return status;
+			
 	}//moveValidation
 
 	@override
