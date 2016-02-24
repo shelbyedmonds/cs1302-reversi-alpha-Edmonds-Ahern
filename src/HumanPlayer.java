@@ -33,9 +33,6 @@ public class HumanPlayer extends Player{
 	}//playersMove
 
 	
-	public void changeAvailableMoveSpaces(){
-		//adding more here later...
-	}//changeAvailableMoveSpaces
 
 	@override
 	public ReversiBoard changeBoard(String playersToken, int row, int column, Board ReversiBoard){
@@ -71,9 +68,7 @@ public class HumanPlayer extends Player{
 	}//showDiagonalMoves
 
 
-	public void removeAvailableMoveMarkers(){
 	
-	}
 
 
 
