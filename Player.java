@@ -1,20 +1,21 @@
 public abstract class Player{
 	//attributes 
 	protected int turn;
-//practice
+	protected String playerToken;
 
 
-/** SHOULD WE ADD IN A CONSTRUCTOR?*/
+	public Player(String playerToken){
+		this.playerToken=playerToken;
+		this.turn=1;
+	}
+	
 	public boolean moveValidation(){
 	}//moveValidation
 	
-	public ReversiBoard playersMove(){
+	public abstract ReversiBoard playersMove(){
 	}//playersMove
 	
-	public boolean isYourTurn(){
-	}//isYourTurn
-	
-	public ReversiBoard changeBoard(){
+	public abstract ReversiBoard changeBoard(){
 	}//changeBoard
 
 	public int getTurnNum(){
