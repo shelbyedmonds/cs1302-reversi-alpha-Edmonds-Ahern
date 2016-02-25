@@ -44,14 +44,6 @@ public abstract class ComputerPlayer extends Player{
 	public ReversiBoard changeBoard(){
 	}//changeBoard
 
-	public abstract void showVerticalMoves(Board reversiBoard, String playerToken){
-        }//showVerticalMoves
-
-        public abstract void showHorizontalMoves(Board reversiBoard, String playerToken){
-        }//showHorizontalMoves
-
-        public abstract void showDiagonalMoves(Board reversiBoard, String playerToken){
-        }//showDiagonalMoves
 
 
 
