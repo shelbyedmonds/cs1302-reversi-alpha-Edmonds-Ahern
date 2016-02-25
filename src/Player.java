@@ -33,7 +33,10 @@ public abstract class Player{
 	}//getTurnNum
 
 	public void showVerticalMoves(Board reversiBoard, String playerToken){
-        if(playerToken.equals("X"){
+		boolean checkAbove=false;
+		boolean checkBelow=false; 
+
+       if(playerToken.equals("X"){
 
         for(int j=0; j<8;j++){
                 for(int i=0; i<8; i++){
@@ -97,7 +100,10 @@ public abstract class Player{
 	
 
 	public void showHorizontalMoves(Board reversiBoard, String playerToken ){
-                if(playerToken.equals("X"){
+	boolean checkLeft=false;
+	boolean checkRight=false;        
+
+        if(playerToken.equals("X"){
 
         for(int i=0; i<8; i++){
                 for(int j=0; j<8;j++){
@@ -162,7 +168,146 @@ public abstract class Player{
         }//showHorizontalMoves
 
 
-        public abstract void showDiagonalMoves(Board reversiBoard, String playerToken){
+        public void showDiagonalMoves(Board reversiBoard, String playerToken){
+	int q=2;
+	int l=2;
+	int r=2;
+	int s=2;
+	for(int i=0, j=0; i<8, j<8; i++, j++){
+		if(playerToken.equals("X"){
+			//checkLeftUpDiagonal
+			for(int row=i, column=j; row>=0, column>=0; row--, column--){
+					if(reversiBoard[row][column].equals("X"){
+						if(row-1>0&&column-1>0&&reversiBoard[row-1][column-1].equals("O")){
+							if(row-q>0&&column-q>0&&reversiBoard[row-q][column-q].equals(".")){
+								reversiBoard[row-q][column-q]="_";
+								break;
+							else
+								q++;
+							}
+						}
+					}
+					q=2;
+			}
+			
+
+			//checkRightDownDiagonal
+			for(int row=i, column=j; row<8, column<8; row++, column++){
+					if(reversiBoard[row][column].equals("X"){
+						if(row+1<8&&column+1<8&&reversiBoard[row+1][column+1].equals("O")){
+							if(row+l<8&&column+l<8&&reversiBoard[row+l][column+l].equals(".")){
+								reversiBoard[row+l][column+l]="_";
+								break;
+							}
+							else
+								l++;
+						}
+					}
+					l=2;
+			}
+			
+			
+			//checkLeftDownDiagonal
+			for(int row=i, column=j; row<8, column<0; row++, column--){
+				if(reversiBoard[row][column].equals("X"){
+					if(row+1<8&&column-1>0&& reversiBoard[row+1][column-1].equals("O")){
+						if(row+r<8&&column-r>0&&reversiBoard[row+r][column-r].equals(".")){
+							reversiBoard[row+r][column-r]="_";
+							break;
+						}
+						else
+							r++;
+					}
+				}
+				r=2;
+			}
+	
+			//checkRightUpDiagonal		
+		 	for(int row=i, column=j; row>0, column<8; row--, column++){
+                                if(reversiBoard[row][column].equals("X"){
+                                        if(row-1>0&&column+1<8&& reversiBoard[row-1][column+1].equals("O")){
+                                                if(row-s>0&&column+s<8&&reversiBoard[row-s][column+s].equals(".")){
+                                                        reversiBoard[row-s][column+s]="_";
+                                                        break;
+                                                }
+                                                else
+                                                        s++;
+                                        }       
+                                }
+                                s=2;
+                        }
+		}
+		if(playerToken.equals("O"){
+		          //checkLeftUpDiagonal
+		          for(int row=i, column=j; row>=0, column>=0; row--, column--){
+		          	if(reversiBoard[row][column].equals("O"){
+                                	if(row-1>0&&column-1>0&&reversiBoard[row-1][column-1].equals("X")){
+						if(row-q>0&&column-q>0&&reversiBoard[row-q][column-q].equals(".")){
+                                                                reversiBoard[row-q][column-q]="_";
+                                                                break;
+                                                        else
+                                                                q++;
+                                                        }
+                                                }
+                                        }
+                                        q=2;
+                        }
+			//checkRightDownDiagonal
+			for(int row=i, column=j; row<8, column<8; row++, column++){
+                                        if(reversiBoard[row][column].equals("O"){
+                                                if(row+1<8&&column+1<8&&reversiBoard[row+1][column+1].equals("X")){
+                                                        if(row+l<8&&column+l<8&&reversiBoard[row+l][column+l].equals(".")){
+                                                                reversiBoard[row+l][column+l]="_";
+                                                                break;
+                                                        }
+                                                        else
+                                                                l++;
+                                                }
+                                        }
+                                        l=2;
+                        }
+			
+			//checkLeftDownDiagonal
+			for(int row=i, column=j; row<8, column<0; row++, column--){
+                                if(reversiBoard[row][column].equals("O"){
+                                        if(row+1<8&&column-1>0&& reversiBoard[row+1][column-1].equals("X")){
+                                                if(row+r<8&&column-r>0&&reversiBoard[row+r][column-r].equals(".")){
+                                                        reversiBoard[row+r][column-r]="_";
+                                                        break;
+                                                }
+                                                else
+                                                        r++;
+                                        }
+                                }
+                                r=2;
+                        }
+
+			//checkRightUpDiagonal
+			           for(int row=i, column=j; row>0, column<8; row--, column++){
+                                if(reversiBoard[row][column].equals("O"){
+                                        if(row-1>0&&column+1<8&& reversiBoard[row-1][column+1].equals("X")){
+                                                if(row-s>0&&column+s<8&&reversiBoard[row-s][column+s].equals(".")){
+                                                        reversiBoard[row-s][column+s]="_";
+                                                        break;
+                                                }
+                                                else
+                                                        s++;
+                                        }
+                                }
+                                s=2;
+                        }
+                }
+}
+			
+
+
+
+
+
+
+
+
+
         }//showDiagonalMoves
 
 	public void removeAvailableMoveMarkers(Board reversiBoard){
