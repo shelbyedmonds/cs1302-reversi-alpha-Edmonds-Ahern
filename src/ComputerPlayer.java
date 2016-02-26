@@ -26,13 +26,13 @@ public abstract class ComputerPlayer extends Player{
 	}//getRandomColumn
 
 	@override
-	public boolean moveValidation(Board ReversiBoard){
+	public boolean moveValidation(String [][] reversiBoard){
 		
 		boolean status=false
 		while(status==false){
 		getRandomRow();
 		getRandomColumn();
-		if(ReversiBoard[randomRow][randomColumn].equals("_")){
+		if(reversiBoard[randomRow][randomColumn].equals("_")){
 			status=true;
 		}
 		}
@@ -41,10 +41,10 @@ public abstract class ComputerPlayer extends Player{
 	}//moveValidation
 
 	@override
-	public ReversiBoard changeBoard(String playersToken, Board ReversiBoard){
-		moveValidation(ReversiBoard);
-		ReversiBoard[randomRow][randomColumn]=playersToken;
-		ReversiBoard[row][column]=playersToken;
+	public String [][] changeBoard(String playersToken, String [][] reversiBoard){
+		moveValidation(reversiBoard);
+		reversiBoard[randomRow][randomColumn]=playersToken;
+		reversiBoard[row][column]=playersToken;
                 boolean changeToLeft=false;
                 boolean changeToRight=false;
                 boolean changeUp=false;
@@ -68,14 +68,14 @@ public abstract class ComputerPlayer extends Player{
 
 		//horizontal right loop changer 
 		for(int j=randomColumn; j<8; j++){
-                        if(ReversiBoard[randomRow][j].equals("_"){
+                        if(reversiBoard[randomRow][j].equals("_"){
                                 lastRightIndexToChange=j;
                                 changeToRight=true;
                                 break;
                         }
                         if(changeToRight==true){
                                 for(int q=randomColumn; q<=lastRightIndexToChange; q++){
-                                        ReversiBoard[randomRow][q]=playersToken;
+                                        reversiBoard[randomRow][q]=playersToken;
                                 }
                         }
                 lastRightIndexToChange=100;
@@ -84,14 +84,14 @@ public abstract class ComputerPlayer extends Player{
 
 		//horizontal left loop changer
 		for(int j=randomColumn; j>0; j--){
-                        if(ReversiBoard[randomRow][j].equals("_"){
+                        if(reversiBoard[randomRow][j].equals("_"){
                                 lastLeftIndexToChange=j;
                                 changeToLeft=true;
                                 break;
                         }
                         if(changeToLeft=true){
                                 for(int q=randomColumn; q>=lastLeftIndexToChange; q--){
-                                        ReversiBoard[randomRow][q]=playersToken;
+                                        reversiBoard[randomRow][q]=playersToken;
                                 }
                         }
                 changeToLeft=false;
@@ -100,14 +100,14 @@ public abstract class ComputerPlayer extends Player{
 		
 		//vertical up loop changer
 		for(int i=randomRow; i>0; i--){
-                        if(ReversiBoard[i][randomColumn].equals("_"){
+                        if(reversiBoard[i][randomColumn].equals("_"){
                                 lastUpIndexToChange=i;
                                 changeUp=true;
                                 break;
                         }
                         if(changeUp=true){
                                 for(int t=randomRow; t>=lastUpIndexToChange; t--){
-                                        ReversiBoard[t][randomColumn]=playersToken;
+                                        reversiBoard[t][randomColumn]=playersToken;
                                 }
                         }
                 changeUp=false;
@@ -116,14 +116,14 @@ public abstract class ComputerPlayer extends Player{
 
 		//vertical down loop changer
 		for(int i=randomRow; i<8; i++){
-                        if(ReversiBoard[i][randomColumn].equals("_"){
+                        if(reversiBoard[i][randomColumn].equals("_"){
                                 lastDownIndexToChange=i;
                                 changeDown=true;
                                 break;
                         }
                         if(changeDown=true){
                                 for(int t=randomRow; t<=lastUpIndexToChange; t++){
-                                        ReversiBoard[t][randomColumn]=playersToken;
+                                        reversiBoard[t][randomColumn]=playersToken;
                                 }
                         }
                 changeDown=false;
@@ -132,7 +132,7 @@ public abstract class ComputerPlayer extends Player{
 
 		//diagonal left up loop changer
 		for(int i=randomRow, j=randomColumn; i>0&&j>0; j--, i--){
-                        if(ReversiBoard[i][j].equals("_"){
+                        if(reversiBoard[i][j].equals("_"){
                                 lastLeftUpRowIndex=i;
                                 lastLeftUpColumnIndex=j;
                                 changeLeftUp=true;
@@ -140,7 +140,7 @@ public abstract class ComputerPlayer extends Player{
                         }
                         if(changeLeftUp=true){
                                 for(int q=randomRow, t=randomColumn; q>=lastLeftUpRowIndex, t>=lastLeftUpColumnIndex; q--, t--){
-                                                ReversiBoard[q][t]=playersToken;
+                                                reversiBoard[q][t]=playersToken;
                                 }
                         }
                         changeLeftUp=false;
@@ -149,7 +149,7 @@ public abstract class ComputerPlayer extends Player{
                 }
 		//diagonal right down loop changer
 		for(int i=randomRow, j=randomColumn; i>0&&j<8; j++, i--){
-                        if(ReversiBoard[i][j].equals("_"){
+                        if(reversiBoard[i][j].equals("_"){
                                 lastRightUpRowIndex=i;
                                 lastRightUpColumnIndex=j;
                                 changeRightUp=true;
@@ -157,7 +157,7 @@ public abstract class ComputerPlayer extends Player{
                         }
                         if(changeRightUp=true){
                                 for(int q=randomRow, t=randomColumn; q>=lastRightDownRowIndex, t<=lastRightDownColumnIndex; q--, t++){                                     
-                                        ReversiBoard[q][t]=playersToken;
+                                        reversiBoard[q][t]=playersToken;
                                 }
                         }
                         changeRightUp=false;
@@ -167,7 +167,7 @@ public abstract class ComputerPlayer extends Player{
 
 		//diagonal right up loop changer
 		for(int i=randomRow, j=randomColumn; i>0&&j<8; j++, i--){
-                        if(ReversiBoard[i][j].equals("_"){
+                        if(reversiBoard[i][j].equals("_"){
                                 lastRightUpRowIndex=i;
                                 lastRightUpColumnIndex=j;
                                 changeRightUp=true;
@@ -175,7 +175,7 @@ public abstract class ComputerPlayer extends Player{
                         }
                         if(changeRightUp=true){
                                 for(int q=randomRow, t=randomColumn; q>=lastRightDownRowIndex, t<=lastRightDownColumnIndex; q--, t++){                                     
-                                        ReversiBoard[q][t]=playersToken;
+                                        reversiBoard[q][t]=playersToken;
                                 }
                         }
                         changeRightUp=false;
@@ -185,7 +185,7 @@ public abstract class ComputerPlayer extends Player{
 
 		//diagonal left down loop changer
 		for(int i=randomRow, j=randomColumn; i<8&&j>0; j--, i++){
-                        if(ReversiBoard[i][j].equals("_"){
+                        if(reversiBoard[i][j].equals("_"){
                                 lastLeftDownRowIndex=i;
                                 lastLeftDownColumnIndex=j;
                                 changeLeftDown=true;
@@ -193,7 +193,7 @@ public abstract class ComputerPlayer extends Player{
                         }
                         if(changeLeftDown=true){
                                 for(int q=randomRow, t=randomColumn; q<=lastLeftUpRowIndex, t>=lastLeftUpColumnIndex; q++, t--){
-                                                ReversiBoard[q][t]=playersToken;
+                                                reversiBoard[q][t]=playersToken;
                                 }
                         }
                         changeLeftDown=false;
@@ -202,7 +202,7 @@ public abstract class ComputerPlayer extends Player{
                 }
 
 
-		return ReversiBoard;
+		return reversiBoard;
 	}//changeBoard
 
 

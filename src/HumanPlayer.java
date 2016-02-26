@@ -13,30 +13,30 @@ public class HumanPlayer extends Player{
 
 	
 	@override
-	public boolean moveValidation(Board ReversiBoard){
-		if(ReversiBoard[row-1][column-1].equals("_")&&row<8&&row>0&&column<8&&row>0 )
+	public boolean moveValidation(String [][] reversiBoard){
+		if(reversiBoard[row-1][column-1].equals("_")&&row<8&&row>0&&column<8&&row>0 )
 			return true;
 		else
 			return false;
 	}//moveValidation
 	
 	@override
-	public ReversiBoard playersMove(String playersToken, int row, int column, Board ReversiBoard){
+	public String [][] playersMove(String playersToken, int row, int column, String [][] reversiBoard){
 	if(row>0&&row<8&&column>0&&column<8){
 		this.row=row;
 		this.column=column;
 	}
-	if(moveValidation(ReversiBoard)==true)
-		changeBoard(playersToken, row, column, ReversiBoard);
+	if(moveValidation(reversiBoard)==true)
+		changeBoard(playersToken, row, column, reversiBoard);
 		
-	return ReversiBoard;
+	return reversiBoard;
 	}//playersMove
 
 	
 
 	@override
-	public ReversiBoard changeBoard(String playersToken, int row, int column, Board ReversiBoard){
-		ReversiBoard[row][column]=playersToken;
+	public String [][] changeBoard(String playersToken, int row, int column, String [][] reversiBoard){
+		reversiBoard[row][column]=playersToken;
 		boolean changeToLeft=false;
 		boolean changeToRight=false;
 		boolean changeUp=false;
@@ -60,14 +60,14 @@ public class HumanPlayer extends Player{
 		
 		//horizontal right loop changer
 		for(int j=column; j<8; j++){
-			if(ReversiBoard[row][j].equals("_"){
+			if(reversiBoard[row][j].equals("_"){
 				lastRightIndexToChange=j;
 				changeToRight=true;
 				break;
 			}
 			if(changeToRight==true){
 				for(int q=column; q<=lastRightIndexToChange; q++){
-					ReversiBoard[row][q]=playersToken;
+					reversiBoard[row][q]=playersToken;
 				}
 			}
 		lastRightIndexToChange=100;
@@ -75,14 +75,14 @@ public class HumanPlayer extends Player{
 		}
 		//horizontal left loop changer
 		for(int j=column; j>0; j--){
-			if(ReversiBoard[row][j].equals("_"){
+			if(reversiBoard[row][j].equals("_"){
 				lastLeftIndexToChange=j;
 				changeToLeft=true;
 				break;
 			}
 			if(changeToLeft=true){
 				for(int q=column; q>=lastLeftIndexToChange; q--){
-					ReversiBoard[row][q]=playersToken;
+					reversiBoard[row][q]=playersToken;
 				}
 			}
 		changeToLeft=false;
@@ -90,14 +90,14 @@ public class HumanPlayer extends Player{
 		}
 		//vertical up loop changer
 		for(int i=row; i>0; i--){
-			if(ReversiBoard[i][column].equals("_"){
+			if(reversiBoard[i][column].equals("_"){
 				lastUpIndexToChange=i;
 				changeUp=true;
 				break;
 			}
 			if(changeUp=true){
 				for(int t=row; t>=lastUpIndexToChange; t--){
-					ReversiBoard[t][column]=playersToken;
+					reversiBoard[t][column]=playersToken;
 				}
 			}
 		changeUp=false;
@@ -106,14 +106,14 @@ public class HumanPlayer extends Player{
 
 		//vertical down checker
 		for(int i=row; i<8; i++){
-                        if(ReversiBoard[i][column].equals("_"){         
+                        if(reversiBoard[i][column].equals("_"){         
                                 lastDownIndexToChange=i;
                                 changeDown=true;
                                 break;
                         }
                         if(changeDown=true){
                                 for(int t=row; t<=lastUpIndexToChange; t++){
-                                        ReversiBoard[t][column]=playersToken;
+                                        reversiBoard[t][column]=playersToken;
                                 }
                         }
                 changeDown=false;
@@ -124,7 +124,7 @@ public class HumanPlayer extends Player{
 
 		//diagonal left up loop changer
 		for(int i=row, j=column; i>0&&j>0; j--, i--){		
-			if(ReversiBoard[i][j].equals("_"){
+			if(reversiBoard[i][j].equals("_"){
 				lastLeftUpRowIndex=i;
 				lastLeftUpColumnIndex=j;
 				changeLeftUp=true;
@@ -132,7 +132,7 @@ public class HumanPlayer extends Player{
 			}
 			if(changeLeftUp=true){
 				for(int q=row, t=column; q>=lastLeftUpRowIndex, t>=lastLeftUpColumnIndex; q--, t--){
-						ReversiBoard[q][t]=playersToken;
+						reversiBoard[q][t]=playersToken;
 				}
 			}
 			changeLeftUp=false;
@@ -143,7 +143,7 @@ public class HumanPlayer extends Player{
 		//diagonal right down loop changer
 		
 		   for(int i=row, j=column; i<8&&j<8; j++, i++){
-                        if(ReversiBoard[i][j].equals("_"){                      
+                        if(reversiBoard[i][j].equals("_"){                      
                                 lastRightDownRowIndex=i;
                                 lastRightDownColumnIndex=j;
                                 changeRightDown=true;
@@ -151,7 +151,7 @@ public class HumanPlayer extends Player{
                         }
                         if(changeRightDown=true){
                                 for(int q=row, t=column; q<=lastRightDownRowIndex, t<=lastRightDownColumnIndex; q++, t++){                                                                      
-					ReversiBoard[q][t]=playersToken;
+					reversiBoard[q][t]=playersToken;
                                 
 				}
                         }
@@ -163,7 +163,7 @@ public class HumanPlayer extends Player{
 		//diagonal right up loop checker
 
 		  for(int i=row, j=column; i>0&&j<8; j++, i--){
-                        if(ReversiBoard[i][j].equals("_"){
+                        if(reversiBoard[i][j].equals("_"){
                                 lastRightUpRowIndex=i;
                                 lastRightUpColumnIndex=j;
                                 changeRightUp=true;
@@ -171,7 +171,7 @@ public class HumanPlayer extends Player{
                         }
                         if(changeRightUp=true){
                                 for(int q=row, t=column; q>=lastRightDownRowIndex, t<=lastRightDownColumnIndex; q--, t++){                                                                      
-					ReversiBoard[q][t]=playersToken;
+					reversiBoard[q][t]=playersToken;
                                 }
                         }
                         changeRightUp=false;
@@ -181,7 +181,7 @@ public class HumanPlayer extends Player{
 		//diagonal left down loop checker
 		
 		for(int i=row, j=column; i<8&&j>0; j--, i++){
-                        if(ReversiBoard[i][j].equals("_"){
+                        if(reversiBoard[i][j].equals("_"){
                                 lastLeftDownRowIndex=i;
                                 lastLeftDownColumnIndex=j;
                                 changeLeftDown=true;
@@ -189,7 +189,7 @@ public class HumanPlayer extends Player{
                         }
                         if(changeLeftDown=true){
                                 for(int q=row, t=column; q<=lastLeftUpRowIndex, t>=lastLeftUpColumnIndex; q++, t--){
-                                                ReversiBoard[q][t]=playersToken;
+                                                reversiBoard[q][t]=playersToken;
                                 }
                         }
                         changeLeftDown=false;
@@ -198,7 +198,7 @@ public class HumanPlayer extends Player{
                 }				
 				
 		
-	return ReversiBoard;
+	return reversiBoard;
 	}//ReversiBoard
 
 

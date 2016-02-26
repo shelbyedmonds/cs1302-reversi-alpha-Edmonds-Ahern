@@ -32,7 +32,7 @@ public abstract class Player{
 		return turn;
 	}//getTurnNum
 
-	public void showVerticalMoves(Board reversiBoard, String playerToken){
+	public void showVerticalMoves(String [][] reversiBoard, String playerToken){
 		boolean checkAbove=false;
 		boolean checkBelow=false; 
 
@@ -99,7 +99,7 @@ public abstract class Player{
 
 	
 
-	public void showHorizontalMoves(Board reversiBoard, String playerToken ){
+	public void showHorizontalMoves(String [][] reversiBoard, String playerToken ){
 	boolean checkLeft=false;
 	boolean checkRight=false;        
 
@@ -168,7 +168,7 @@ public abstract class Player{
         }//showHorizontalMoves
 
 
-        public void showDiagonalMoves(Board reversiBoard, String playerToken){
+        public void showDiagonalMoves(String [][] reversiBoard, String playerToken){
 	int q=2;
 	int l=2;
 	int r=2;
@@ -310,7 +310,7 @@ public abstract class Player{
 
         }//showDiagonalMoves
 
-	public void removeAvailableMoveMarkers(Board reversiBoard){
+	public void removeAvailableMoveMarkers(String [][] reversiBoard){
 		for(int i=0; i<8; i++){
 			for(int j=0; j<8; j++){
 				if(reversiBoard[i][j].equals("_"))
