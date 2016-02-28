@@ -3,6 +3,13 @@ public abstract class Player{
 	protected int turn;
 	protected int numOfTokens;
 	protected String token;
+
+
+/**This is the constructor for the player class.
+ * It creates an object with a specific turn number, a num of tokens value, and which token is theirs.
+ *
+ * @param playerToken a string that denotes which token the player will use. Either X or O.
+ */
 	
 	public Player(String playerToken){
 	turn=1;
@@ -10,33 +17,67 @@ public abstract class Player{
 	token=playerToken;
 	}//Player
 
+/**An abstract method that will later be used to validate moves.
+ * @param none
+ * @return boolean value of if the move is valid (true) or not (false).
+ */
 	public abstract boolean moveValidation(){
 	}//moveValidation
-	
+
+/**This method returns the number of tokens a player object has.
+ * 
+ *@param none
+ * @return int value of tokens.
+ */	
 	public int howManyTokens(){
 		return numOfTokens;
 	}//howManyTokens
 
+/**This method is used to change the number of tokens a player has.
+ * It will be used on each turn when a player makes a move that changes the board.
+ *
+ * @param tokens an int value that tells the number of tokens a player has on the board.
+ * @return void.
+ */
 	public void changeNumOfTokens(int tokens){
 		numOfTokens=tokens;
 	}//changeNumOfTokens
 
-	public abstract ReversiBoard playersMove(){
+/**This method will be used to make a move for the player.
+ * @param none
+ * @return String [][] (the board)
+ */
+	public abstract String [][] playersMove(){
 	}//playersMove
 	
 	
-	public abstract ReversiBoard changeBoard(){
+/**This method will change the board in children classes.
+ * @param none
+ * @return String [][] (the board)
+ */
+	public abstract String [][] changeBoard(){
 	}//changeBoard
 
+/**This method will return the number of the turn game play is currently on. 
+ * @param none
+ * @return int the number of turns so far
+ */
 	public int getTurnNum(){
 		return turn;
 	}//getTurnNum
+
+/**This method shows the vertical moves present on the board by changing them to underscores to be displayed.
+ * @param reversiBoard a two-dimensional string array that represents the game board
+ * @param playerToken a string that identifies which player is needing to see their possible moves in a vertical direction.
+ *@return void
+ */
+
 
 	public void showVerticalMoves(String [][] reversiBoard, String playerToken){
 		boolean checkAbove=false;
 		boolean checkBelow=false; 
 
-       if(playerToken.equals("X"){
+        if(playerToken.equals("X"){
 
         for(int j=0; j<8;j++){
                 for(int i=0; i<8; i++){
@@ -65,6 +106,8 @@ public abstract class Player{
                         }
                 }
         }
+	}
+	}
         if(playerToken.equals("O"){
         for(int j=0; j<8;j++){
                 for(int i=0; i<8; i++){
@@ -95,10 +138,13 @@ public abstract class Player{
         }
         }
         }
-        }//showVerticalMoves
+        } //showVerticalMoves
 
-	
-
+/**This method shows the possible horizontal moves for a specific player by marking them with an underscore. 
+ * @param reversiBoard this is a 2 dimensional string array that represents the game board
+ * @param playerToken this represents the player in a string format by their token
+ * @return void
+ */	
 	public void showHorizontalMoves(String [][] reversiBoard, String playerToken ){
 	boolean checkLeft=false;
 	boolean checkRight=false;        
@@ -167,6 +213,11 @@ public abstract class Player{
 
         }//showHorizontalMoves
 
+/**This method shows the possible diagonal moves for a specific player
+ * @param reversiBoard a two dimensional String array that represents the board
+ * @param playerToken a string that represents the player. 
+ * @return void
+ */
 
         public void showDiagonalMoves(String [][] reversiBoard, String playerToken){
 	int q=2;
@@ -297,7 +348,7 @@ public abstract class Player{
                                 s=2;
                         }
                 }
-}
+
 			
 
 
@@ -307,9 +358,13 @@ public abstract class Player{
 
 
 
-
+}
         }//showDiagonalMoves
 
+/** This method removes any underscores marking available moves in the game board.
+ * @param reversiBoard a two dimensional string array that represents the game board.
+ * @return void.
+ */
 	public void removeAvailableMoveMarkers(String [][] reversiBoard){
 		for(int i=0; i<8; i++){
 			for(int j=0; j<8; j++){
@@ -319,6 +374,10 @@ public abstract class Player{
 		}
 	}//removeAvailableMoveMarkers
 
+/**This method allows us to change the turn number the game is on if for example an error was made.
+ * @param turn an int that tells the desired turn number
+ * @return void
+ */
 	public void setTurn(int turn){
 		this.turn=turn;
 	}//setTurn

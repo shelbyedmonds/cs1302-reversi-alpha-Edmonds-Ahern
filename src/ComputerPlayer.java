@@ -6,6 +6,12 @@ public abstract class ComputerPlayer extends Player{
 	protected String playersToken;
 
 
+/**This is the constructor for the ComputerPlayer abstract class.
+ * It creates an object based on the playersToken which is used to call the parent classes
+ * constructor.
+ * It also creates a randomGenerator which will be utilized for the computer to play.
+ *@param playersToken a string that represents the players token
+ */
 	public ComputerPlayer(String playersToken){
 		super(playersToken);
 		Random randomGenerator=new Random();
@@ -14,17 +20,28 @@ public abstract class ComputerPlayer extends Player{
 		
 	}//constructor
 
-
+/**This method selects a random row for the computer to play at.
+ * @param none
+ * @return int
+ */
 	public int getRandomRow(){
 		randomRow=randomGenerator.nextInt(8);
 	
 	}//getRandomRow
 
+/**This method selects a random column for the computer to play at.
+ * @param none
+ * @return int
+ */
 	public int getRandomColumn(){
 		randomColumn=randomGenerator.nextInt(8);
 
 	}//getRandomColumn
 
+/**This method validates the move of the computer.
+ * @param reversiBoard a two dimensional String array that represents the game board.
+ * @return boolean
+ */
 	@override
 	public boolean moveValidation(String [][] reversiBoard){
 		
@@ -40,7 +57,13 @@ public abstract class ComputerPlayer extends Player{
 			
 	}//moveValidation
 
-	@override
+/** This method changes the board based on the random computer move.
+ * @param playersToken a string that represents the players token.
+ * @param reversiBoard a 2d string array that represents the game board.
+ *@return String [][] a 2d string array that represents the game board
+*/
+
+	@override	
 	public String [][] changeBoard(String playersToken, String [][] reversiBoard){
 		moveValidation(reversiBoard);
 		reversiBoard[randomRow][randomColumn]=playersToken;

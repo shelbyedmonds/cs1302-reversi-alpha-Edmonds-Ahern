@@ -4,6 +4,10 @@ public class HumanPlayer extends Player{
 	private int column;
 	private String playersToken;
 	
+/**This is a constructor for the human player class.
+ * It takes in the desired players token so it can call the parent constructor as well.
+ * @param playersToken a string that denotes the players token
+ */
 	public HumanPlayer(String playersToken){
 		super(playersToken);
 		this.playersToken=playersToken;
@@ -11,7 +15,10 @@ public class HumanPlayer extends Player{
 	}//constructor
 	
 
-	
+/**This method validates the move a player wants to make 
+ * @param reversiBoard a 2 dimensional array that represents the game board.
+ * @return boolean if the move is validated.
+ */	
 	@override
 	public boolean moveValidation(String [][] reversiBoard){
 		if(reversiBoard[row-1][column-1].equals("_")&&row<8&&row>0&&column<8&&row>0 )
@@ -19,7 +26,15 @@ public class HumanPlayer extends Player{
 		else
 			return false;
 	}//moveValidation
-	
+
+/**This method makes a move for the player. This method also calls subsequent methods to 
+ * determine if the move can be made or not. 
+ * @param playersToken a string value that represents the player
+ * @param row an int value that shows which row they want to move a piece to
+ * @param column an int value that shows which column they want to move a piece to
+ * @param reversiBoard a 2 dimensional string that represents the game board
+ * @return String [][] a two dimensional string array that represeents the modified board
+ */	
 	@override
 	public String [][] playersMove(String playersToken, int row, int column, String [][] reversiBoard){
 	if(row>0&&row<8&&column>0&&column<8){
@@ -33,7 +48,14 @@ public class HumanPlayer extends Player{
 	}//playersMove
 
 	
-
+/**This method changes the board for the players move. It takes into account which way the player moved and 
+ * changes all the pieces accordingly.
+ * @param playersToken a string representing the player's token
+ * @param row an int showing which row they moved a piece to
+ * @param column an int showing which column they moved a piece to 
+ * @param reversiBoard a two dimensional array that represents the game board
+ * @return String [][] an array that represents the game board
+ */
 	@override
 	public String [][] changeBoard(String playersToken, int row, int column, String [][] reversiBoard){
 		reversiBoard[row][column]=playersToken;
