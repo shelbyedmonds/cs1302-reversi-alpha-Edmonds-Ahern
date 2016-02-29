@@ -1,7 +1,5 @@
 public interface Board{
 
-//	public String[][] board;
-
 	public void displayBoard(String[][] board);
 
 	public String[][] initializeBoard();
