@@ -382,4 +382,20 @@ public abstract class Player{
 		this.turn=turn;
 	}//setTurn
 
+/**This method is a way of counting up how many tokens one player has. It will
+ * be utilized when deciding a winner for the game.
+ * @param playersToken a string that denotes which player
+ * @param reversiBoard a two dimensional String array that represents the game board
+ * @return int the number of tokens
+ */
+	public int tokenCounter(String playersToken, String [][] reversiBoard){
+		int tokens=0;
+		for(int i=0; i<8; i++){
+			for(int j=0; j<8; j++){
+				if(reversiBoard[i][j].equals(playersToken))
+					tokens++;
+			}
+		}
+		return tokens;
+	}//tokenCounter
 }//Player
