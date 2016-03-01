@@ -1,4 +1,4 @@
-c class ReversiBoard implements Board {
+public class ReversiBoard implements Board {
 
 	private String[][] board;
 	private int moveCount = 0;
@@ -147,7 +147,7 @@ c class ReversiBoard implements Board {
 
 
 
-tring[][] searchDown(int row, int col) {
+	private String[][] searchDown(int row, int col) {
 		String player = turnIndicator();
 		String opposite = "";
 		if (player.equals("X")) {
