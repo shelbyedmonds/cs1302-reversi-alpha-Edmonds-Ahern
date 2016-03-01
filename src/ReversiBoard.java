@@ -141,9 +141,13 @@ c class ReversiBoard implements Board {
 			setBoard(searchUDR(row, col));
 			setBoard(searchDDL(row, col));
 			setBoard(searchDDR(row, col));
-
 		}
-private String[][] searchDown(int row, int col) {
+	}
+
+
+
+
+tring[][] searchDown(int row, int col) {
 		String player = turnIndicator();
 		String opposite = "";
 		if (player.equals("X")) {
@@ -601,4 +605,4 @@ private String[][] searchDown(int row, int col) {
 			return false;
 		}
 	}	
-}//reversiBoard
+}//ReversiBoard
