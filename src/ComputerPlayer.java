@@ -59,6 +59,13 @@ public abstract class ComputerPlayer extends Player{
 			
 //	}//moveValidation
 
+
+/**This method will return how many tokens a player has on the board.
+ * 
+ * @param playersToken - String (X or O)
+ * @param reversiBoard- String [][]
+ * @return int.
+ */
 public abstract int howManyTokens(String playersToken, String [][] reversiBoard);
 
 } 

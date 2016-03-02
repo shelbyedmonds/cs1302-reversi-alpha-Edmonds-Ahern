@@ -13,6 +13,12 @@ public class HumanPlayer extends Player{
 	
 	}//constructor
 	
+/**This method describes how many tokens a particular player has.
+ * 
+ * @param playersToken- String 
+ * @param reversiBoard- String [][]
+ * @return int 
+ */
 public int howManyTokens(String playersToken, String [][] reversiBoard){
 	int tokens=0;
 	for(int i=0; i<8; i++){

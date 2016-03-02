@@ -14,6 +14,15 @@ public class Reversi{
 		static boolean gameStatus=false;
 		static ReversiBoard board = new ReversiBoard();
 
+
+/**This is the main method for the game.
+ * It starts game play by calling other methods. Another
+ * important role this method plays is deciding which type of players 
+ * the game will be played by.
+ *
+ * @param args -String []
+ * @return none
+ */
 	public static void main(String [] args){
 
 		Player [] players= new Player [2];		
@@ -113,11 +122,22 @@ public class Reversi{
 			}
 	}
 	}
-	
+
+
+/**This method welcomes the player to the game.
+ *
+ * @param none
+ * @return none
+ */	
 	public static  void welcome(){
 		System.out.println("Welcome to Reversi! Moves should be entered in \"[Row][Column]\" format.");
 	}//welcome
-	
+
+/**This method checks to see if there are any underscores on the board.
+ * 
+ * @param none
+ * @return int 
+ */	
 	public static int underscoreChecker(){
 		int underscores=0;
 		for(int i=0; i<8; i++){
@@ -129,6 +149,11 @@ public class Reversi{
 		return underscores;
 	}//underscoreChecker;
 
+/**This method gets input from the player. 
+ * 
+ * @param p - Player that tells which type of player is calling the method.
+ * @return int []
+ */
 	public static int[] getInput(Player p){
 		Scanner keyboard=new Scanner(System.in);
 		int readRows;
@@ -175,7 +200,11 @@ public class Reversi{
 		return move;
 	}//getInput (Human)
 
-
+/**This method pulls in input from the computer so that the computer can randomly play.
+ *
+ * @param c RandomComputerPlayer
+ * @return int [] 
+ */
 	public static int[] getInput(RandomComputerPlayer c){
 		Random randomGen= new Random();
 		int [] move = new int[2];
