@@ -3,10 +3,6 @@ import java.util.Random;
 public class Reversi{
 	
 			
-//		static HumanPlayer player1;
-//		static HumanPlayer player2;
-//		static RandomComputerPlayer computer1;
-//		static RandomComputerPlayer computer2;
 		static String playerAToken="";
 		static Player player1;
 		static Player player2;
@@ -39,22 +35,18 @@ public class Reversi{
 				if(args[i].equalsIgnoreCase("Human")&&i==0){
 					player1=new HumanPlayer("X");
 					playerAToken="X";
-				//	players[0]=player1;
 				}
 				else if(args[i].equalsIgnoreCase("RandomComputerPlayer")&&i==0){
 					player1=new RandomComputerPlayer("X");
 					playerAToken="X";
-				//	players[0]=computer1;
 				}	
 				else if(args[i].equalsIgnoreCase("Human")&&i==1){
 					player2=new HumanPlayer("O");
 					playerAToken="O";
-				//	players[1]=player2;
 				}
 				else if(args[i].equalsIgnoreCase("RandomComputerPlayer")&&i==1){
 					player2=new RandomComputerPlayer("O");
 					playerAToken="O";
-				//	players[1]=computer2;
 				}
 				else{
 				System.out.println("Invalid Input");
@@ -65,7 +57,6 @@ public class Reversi{
 		}	
 		
 
-	//	ReversiBoard board=new ReversiBoard();
 		board.setBoard(board.initializeBoard());
 		board.setBoard(board.markLegalMoves());	
 		welcome();
@@ -77,7 +68,6 @@ public class Reversi{
 		if(underscoreChecker()>0 && countPieces("X")>0){
 		int[] player1move = getInput(player1);
 		System.out.println();
-	//	player1move = getInput(player1);
 		board.makeMove(player1move[0], player1move[1]);
 		board.setBoard(board.clearValidMoves());
 		board.setMoveCount(board.getMoveCount()+1);
@@ -95,7 +85,6 @@ public class Reversi{
          	if(underscoreChecker()>0 && countPieces("O")>0){       
 		int[] player2move = getInput(player2);
 		System.out.println();
-	//	player2move = getInput(player2);
 		board.makeMove(player2move[0], player2move[1]);
                 board.setBoard(board.clearValidMoves());
                 board.setMoveCount(board.getMoveCount()+1);
@@ -166,10 +155,8 @@ public class Reversi{
 			Scanner keyboard = new Scanner(System.in);
 			while (moveIsGood == false) {	
 				input = keyboard.nextLine();
-			//	Scanner reader = new Scanner(input);
 				if (input.trim().length() != 3 || input.trim().charAt(1) != ' ') {
 					System.out.print("Invalid input. Enter your move player " + board.turnIndicator() + ": ");
-				//	keyboard.nextLine();
 				}
 				else {
 					uncheckedRow = Integer.parseInt("" + input.charAt(0));
@@ -187,49 +174,11 @@ public class Reversi{
 					}
 					else {
 						System.out.print("Invalid move. Enter your move player " + board.turnIndicator() + ": ");
-				//		keyboard.nextLine();
 					}
 				
 				}
 			}
 		}
-		/*		if (reader.hasNextInt()) {
-					uncheckedRow = reader.nextInt();
-					if (reader.hasNextInt()) {
-						uncheckedCol = reader.nextInt();
-		//				reader.nextLine();
-						if (reader.hasNext()) {
-							System.out.println("Invalid move. Enter your move player " + board.turnIndicator() + " ");
-						//	keyboard.nextLine();
-						}
-						else {
-						//	uncheckedRow = reader.nextInt();
-						//	uncheckedCol = reader.nextInt();
-							if (uncheckedRow > 0 && uncheckedRow < 9 && uncheckedCol > 0 && uncheckedCol < 9) {
-								if (board.getBoard()[uncheckedRow-1][uncheckedCol-1].equals("_")) {
-									move[0] = uncheckedRow-1;
-									move[1] = uncheckedCol-1;
-									moveIsGood = true;
-									return move;
-								}
-							}
-							else {
-								System.out.println("Invalid move entry. Enter your move player " + board.turnIndicator() + " ");
-								keyboard.nextLine();
-							}
-						}
-					}
-					else {
-						System.out.println("Invalid move entry. Enter your move player " + board.turnIndicator() + " ");
-						//reader.next();
-					}
-				}
-				else {
-					System.out.println("Invalid move entry. Enter your move player " + board.turnIndicator() + " ");
-				//	reader.next();
-				} */
-			
-		
 		else if (p instanceof RandomComputerPlayer) {
 			System.out.print("Enter your move player " + board.turnIndicator() + " ");
 			uncheckedRow=randGen.nextInt(8);
@@ -264,8 +213,13 @@ public class Reversi{
 			return move;
 		}
 		return move;
-	}
+	}//getInput
 
+/**This method counts the number of pieces a particular player has on the board.
+ *
+ * @param token String
+ * @return int
+ */
 		public static int countPieces(String token){
 			int tokenCounter = 0;
 			for(int i=0; i<8; i++){
@@ -276,8 +230,13 @@ public class Reversi{
 				}
 			}
 			return tokenCounter;
-		}
+		}//countPieces
 
+/**This method carries out the procedures for finding and declaring a winner.
+ *
+ * @param none
+ * @return void
+ */
 		public static void winner() {
 			if (countPieces("X") > countPieces("O")) {
 				System.out.println("Congratulations player X. You defeated\nplayer O " + countPieces("X") + " to " + countPieces("O"));
@@ -290,10 +249,10 @@ public class Reversi{
 			}
 			System.out.println("Thanks for playing!\n");
 			System.exit(0);
-		}
+		}//winner
 			
 
 	
-}	
+}//Reversi	
 
 

@@ -40,25 +40,6 @@ public abstract class ComputerPlayer extends Player{
 		return randomColumn;
 	}//getRandomColumn
 
-/**This method validates the move of the computer.
- * @param reversiBoard a two dimensional String array that represents the game board.
- * @return boolean
- */
-//	@override
-//	public boolean moveValidation(String [][] reversiBoard){
-		
-//		boolean status=false
-//		while(status==false){
-//		getRandomRow();
-//		getRandomColumn();
-//		if(reversiBoard[randomRow][randomColumn].equals("_")){
-//			status=true;
-//		}
-//		}
-//		return status;
-			
-//	}//moveValidation
-
 
 /**This method will return how many tokens a player has on the board.
  * 
@@ -68,4 +49,4 @@ public abstract class ComputerPlayer extends Player{
  */
 public abstract int howManyTokens(String playersToken, String [][] reversiBoard);
 
-} 
+}//ComputerPlayer 
